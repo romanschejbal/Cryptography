@@ -10,7 +10,11 @@ cd Cryptography
 open SpecRunner.html
 ```
 
-This will open an HTML page in your browser with the results of a number of unit tests. Since you haven't written any code yet, these will all be failing.
+This will open an HTML page in your browser with the results of a number of unit tests. Since you haven't written any code yet, these will all be failing. Your task tonight is to make those tests pass!
+
+##Write some code
+
+The two files you'll be editing are `symmetricKeyExchange.js` and `asymmetricKeyEncryption.js`. Each of these files exposes an object on the global scope with a number of properties and methods. You'll need to fill in the code in the methods to make the tests (specified in `lib/spec.js`) pass.
 
 ##Original README
 
