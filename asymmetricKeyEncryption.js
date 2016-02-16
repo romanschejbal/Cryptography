@@ -4,33 +4,87 @@ var Identity = function(){
   this.modulus = null;
 };
 
+/**
+ * Calculates the modulus and private and public keys, and stores them on the
+ * Identity.
+ *
+ * @param {number} p the first of two distinct primes
+ * @param {number} q the second prime
+ *
+ * @sideeffect sets this.modulus, this.publicKey, and this.privateKey on the
+ *     Identity instance
+ */
 Identity.prototype.generateKeyPair = function(p, q){
-  /* Should calculate the private and public key, and store them on the Identity */
+
 };
 
+/**
+ * Given a message, generates and returns the sender's signature.
+ *
+ * @param {string} text
+ * @return {}
+ */
 Identity.prototype.signMessage = function(text){
-  /* Given text, generate and return the senders signature */
+
 };
 
+/**
+ * Given plaintext and a recipient, sendMessage should follow all the necessary protocols for it to be securely sent, and then send the message */
+  /* (Hint: look at receiveMessage)
+ * @param  {[type]}
+ * @param  {[type]}
+ * @return {[type]}
+ */
 Identity.prototype.sendMessage = function(plaintext, recipient){
-  /* Given plaintext and a recipient, sendMessage should follow all the necessary protocols for it to be securely sent, and then send the message */
-  /* (Hint: look at receiveMessage) */
+
 };
 
+/**
+ * Given the ciphertext, signature, and sender, receiveMessage should determine
+ * the integrity of the message and selectively read and return the content.
+ * @param  {[type]} ciphertext [description]
+ * @param  {[type]} signature  [description]
+ * @param  {[type]} sender     [description]
+ * @return {[type]}            [description]
+ */
 Identity.prototype.receiveMessage = function(ciphertext, signature, sender){
-  /* Given the ciphertext, signature, and sender, receiveMessage should determine the integrity of the message and selectively read and return the content. */
+
 };
 
+/**
+ * Should turn plaintext into ciphertext according to the RSA protocol and
+ * return it
+ * @param  {[type]} plaintext [description]
+ * @param  {[type]} key       [description]
+ * @param  {[type]} modulus   [description]
+ * @return {[type]}           [description]
+ */
 var encryptMessage = function(plaintext, key, modulus){
-  /* Should turn plaintext into ciphertext according to the RSA protocol and return it */
+
 };
 
+/**
+ * Should turn ciphertext into plaintext according to the RSA protocol and
+ * return it
+ * @param  {[type]} ciphertext [description]
+ * @param  {[type]} key        [description]
+ * @param  {[type]} modulus    [description]
+ * @return {[type]}            [description]
+ */
 var decryptMessage = function(ciphertext, key, modulus){
-  /* Should turn ciphertext into plaintext according to the RSA protocol and return it */
+
 };
 
+/**
+ * Should confirm that the sender is who they claim to be
+ * @param  {[type]} text      [description]
+ * @param  {[type]} signature [description]
+ * @param  {[type]} key       [description]
+ * @param  {[type]} modulus   [description]
+ * @return {boolean}           [description]
+ */
 var confirmAuthenticity = function(text, signature, key, modulus){
-  /* Should confirm that the sender is who they claim to be */
+
 };
 
 /*******************************************/
