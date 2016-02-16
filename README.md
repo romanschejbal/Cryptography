@@ -1,3 +1,23 @@
+#Algorithms meetup: cryptography
+
+##Quick start
+
+Start from your development directory.
+
+```
+git clone https://github.com/kmoe/Cryptography.git
+cd Cryptography
+open SpecRunner.html
+```
+
+This will open an HTML page in your browser with the results of a number of unit tests. Since you haven't written any code yet, these will all be failing. Your task tonight is to make those tests pass!
+
+##Write some code
+
+The two files you'll be editing are `symmetricKeyExchange.js` and `asymmetricKeyEncryption.js`. Each of these files exposes an object on the global scope with a number of properties and methods. You'll need to fill in the code in the methods to make the tests (specified in `lib/spec.js`) pass.
+
+##Original README
+
 ###Encryption
 
 When communicating data through middlemen and thirdparties (like when sending data over the internet), it’s important that we have a way of keeping our information safe.  We must confirm that the messages are complete, unaltered, authenticated, and sometimes even unread.  Fortunately for this, there are a number of cryptographic techniques that can help us ensure the integrity of our data and the messages we send across the wires.
