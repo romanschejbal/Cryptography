@@ -19,21 +19,25 @@ Identity.prototype.generateKeyPair = function(p, q){
 };
 
 /**
- * Given a message, generates and returns the sender's signature.
+ * Given a message, generates and returns the sender's signature. A signature
+ * is a messsage encrypted using an Identity's private key to verify that they
+ * sent the message.
  *
- * @param {string} text
- * @return {}
+ * @param {string} text the message to sign
+ * @return {string} the signature
  */
 Identity.prototype.signMessage = function(text){
 
 };
 
 /**
- * Given plaintext and a recipient, sendMessage should follow all the necessary protocols for it to be securely sent, and then send the message */
-  /* (Hint: look at receiveMessage)
- * @param  {[type]}
- * @param  {[type]}
- * @return {[type]}
+ * Given plaintext and a recipient Identity, generates ciphertext and signature.
+ * Hint: in this case, the signature is simply the ciphertext encrypted with the
+ * sender's private key.
+ *
+ * @param {string} plaintext the message to be encrypted and sent
+ * @param {Object} recipient an Identity object
+ * @return {Object} an object with signature, ciphertext, and sender properties
  */
 Identity.prototype.sendMessage = function(plaintext, recipient){
 
@@ -42,10 +46,11 @@ Identity.prototype.sendMessage = function(plaintext, recipient){
 /**
  * Given the ciphertext, signature, and sender, receiveMessage should determine
  * the integrity of the message and selectively read and return the content.
- * @param  {[type]} ciphertext [description]
- * @param  {[type]} signature  [description]
- * @param  {[type]} sender     [description]
- * @return {[type]}            [description]
+ *
+ * @param {string} ciphertext the encrypted message
+ * @param {string} signature the signed message
+ * @param {Object} sender an Identity object
+ * @return {string} the plaintext
  */
 Identity.prototype.receiveMessage = function(ciphertext, signature, sender){
 
