@@ -57,24 +57,24 @@ Identity.prototype.receiveMessage = function(ciphertext, signature, sender){
 };
 
 /**
- * Should turn plaintext into ciphertext according to the RSA protocol and
- * return it
- * @param  {[type]} plaintext [description]
- * @param  {[type]} key       [description]
- * @param  {[type]} modulus   [description]
- * @return {[type]}           [description]
+ * Turns plaintext into ciphertext.
+ *
+ * @param {string} plaintext the message to encrypt
+ * @param {number} key the key (public or private) with which to encrypt
+ * @param {number} modulus the modulus for modular arithmetic calculations
+ * @return {string} the ciphertext
  */
 var encryptMessage = function(plaintext, key, modulus){
 
 };
 
 /**
- * Should turn ciphertext into plaintext according to the RSA protocol and
- * return it
- * @param  {[type]} ciphertext [description]
- * @param  {[type]} key        [description]
- * @param  {[type]} modulus    [description]
- * @return {[type]}            [description]
+ * Turns ciphertext into plaintext.
+ *
+ * @param {string} ciphertext the encrypted message to decrypt
+ * @param {number} key the key (public or private) with which to decrypt
+ * @param {number} modulus the modulus for modular arithmetic calculations
+ * @return {string} the plaintext
  */
 var decryptMessage = function(ciphertext, key, modulus){
 
@@ -82,11 +82,13 @@ var decryptMessage = function(ciphertext, key, modulus){
 
 /**
  * Should confirm that the sender is who they claim to be
- * @param  {[type]} text      [description]
- * @param  {[type]} signature [description]
- * @param  {[type]} key       [description]
- * @param  {[type]} modulus   [description]
- * @return {boolean}           [description]
+ *
+ * @param {string} text the plaintext to check the decrypted signature against
+ * @param {string} signature the claimed encryption of the plaintext with the
+ *     key in question
+ * @param {number} key the public key of the sender
+ * @param {[type]} modulus the modulus for modular arithmetic calculations
+ * @return {boolean} whether or not the decrypted text matches the signature
  */
 var confirmAuthenticity = function(text, signature, key, modulus){
 
