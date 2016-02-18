@@ -1,5 +1,7 @@
 #Algorithms meetup: cryptography
 
+:cloud: [slides here](http://slides.com/katharinemoe/crypto-js#/) :cloud:
+
 ##Quick start
 
 Start from your development directory.
