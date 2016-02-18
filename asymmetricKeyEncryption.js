@@ -81,7 +81,7 @@ var decryptMessage = function(ciphertext, key, modulus){
 };
 
 /**
- * Should confirm that the sender is who they claim to be
+ * Checks that a signature is valid.
  *
  * @param {string} text the plaintext to check the decrypted signature against
  * @param {string} signature the claimed encryption of the plaintext with the
@@ -113,7 +113,7 @@ var numberToLetter = function(number){
 var findCoprime = function(number){
   for(var i = 2; i < number; i++){
     if( determineIfCoprime(i, number) ){
-      return i
+      return i;
     }
   }
 };
@@ -131,7 +131,7 @@ var determineIfCoprime = function(a, b){
   var smaller = Object.keys(factorsa) < Object.keys(factorsb) ? factorsa : factorsb;
   var larger = Object.keys(factorsa) < Object.keys(factorsb) ? factorsb : factorsa;
   for(var value in smaller){
-    if(value in larger) return false
+    if(value in larger) return false;
   }
   return true;
 };
@@ -144,8 +144,8 @@ var factor = function(number){
       primes[number / i] = true;
     }
   }
-  primes[number] = true
-  return primes
+  primes[number] = true;
+  return primes;
 };
 
 calculateModInverse = function(number, mod){
