@@ -16,7 +16,9 @@ This will open an HTML page in your browser with the results of a number of unit
 
 ##Write some code
 
-The two files you'll be editing are `symmetricKeyExchange.js` and `asymmetricKeyEncryption.js`. Each of these files exposes an object on the global scope with a number of properties and methods. You'll need to fill in the code in the methods to make the tests (specified in `lib/spec.js`) pass.
+The file you'll be editing is `asymmetricKeyEncryption.js`. This exposes an object on the global scope with a number of properties and methods. You'll need to fill in the code in the methods to make the tests (specified in `lib/spec.js`) pass. I've added some JSDoc but your best clues for what to do are in the test code.
+
+We won't have time to go through `symmetricKeyExchange.js` as a group, but feel free to try it if you finish early!
 
 ##Original README
 
