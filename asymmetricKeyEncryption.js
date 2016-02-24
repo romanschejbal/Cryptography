@@ -14,8 +14,14 @@ var Identity = function(){
  * @sideeffect sets this.modulus, this.publicKey, and this.privateKey on the
  *     Identity instance
  */
-Identity.prototype.generateKeyPair = function(p, q){
-
+Identity.prototype.generateKeyPair = function(p, q) {
+  var n = p * q;
+  this.modulus = n;
+  var comprimeN = findCoprime(n);
+  var totientN = (p - 1) * (q - 1);
+  var e = findCoprime(totientN);
+  this.publicKey = e >= 3 ? e : 3;
+  this.privateKey = calculateModInverse(this.publicKey, totientN);
 };
 
 /**
@@ -27,7 +33,7 @@ Identity.prototype.generateKeyPair = function(p, q){
  * @return {string} the signature
  */
 Identity.prototype.signMessage = function(text){
-
+  return encryptMessage(text, this.privateKey, this.modulus);
 };
 
 /**
@@ -65,7 +71,11 @@ Identity.prototype.receiveMessage = function(ciphertext, signature, sender){
  * @return {string} the ciphertext
  */
 var encryptMessage = function(plaintext, key, modulus){
-
+  const numbers = plaintext.split('').map(letterToNumber);
+  const encrypted = numbers.map(number => {
+    return Math.pow(number, key) % modulus;
+  });
+  return encrypted.map(numberToLetter).join('');
 };
 
 /**
@@ -77,7 +87,7 @@ var encryptMessage = function(plaintext, key, modulus){
  * @return {string} the plaintext
  */
 var decryptMessage = function(ciphertext, key, modulus){
-
+  return encryptMessage(ciphertext, key, modulus);
 };
 
 /**
@@ -91,7 +101,7 @@ var decryptMessage = function(ciphertext, key, modulus){
  * @return {boolean} whether or not the decrypted text matches the signature
  */
 var confirmAuthenticity = function(text, signature, key, modulus){
-
+  return text === decryptMessage(signature, key, modulus);
 };
 
 /*******************************************/
