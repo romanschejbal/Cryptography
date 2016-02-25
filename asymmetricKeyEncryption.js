@@ -46,7 +46,19 @@ Identity.prototype.signMessage = function(text){
  * @return {Object} an object with signature, ciphertext, and sender properties
  */
 Identity.prototype.sendMessage = function(plaintext, recipient){
+  const signature = this.signMessage(plaintext);
+  const ciphertext = encryptMessage(plaintext, recipient.publicKey, recipient.modulus);
+  recipient.receiveMessage(
+    ciphertext,
+    signature,
+    this
+  );
 
+  return {
+    signature: signature,
+    ciphertext: ciphertext,
+    sender: this
+  };
 };
 
 /**
@@ -59,7 +71,11 @@ Identity.prototype.sendMessage = function(plaintext, recipient){
  * @return {string} the plaintext
  */
 Identity.prototype.receiveMessage = function(ciphertext, signature, sender){
-
+  const decrypted = decryptMessage(ciphertext, this.privateKey, this.modulus);
+  if (!confirmAuthenticity(decrypted, signature, sender.publicKey, sender.modulus)) {
+    return 'Identity not authenticated';
+  }
+  return decrypted;
 };
 
 /**
